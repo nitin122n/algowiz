@@ -1,0 +1,109 @@
+/*
+ * ALGO-WIZ design tokens.
+ * Dark "spellbook codex": ink pages, warm gold hairlines and glyphs, parchment text.
+ * Light "misty dawn": mist-blue to sage light, frosted glass, lake-blue accent.
+ * One accent per theme (`--fam`, gold or lake blue). The family hue (`--h`) only colors its sigil (`--sig`).
+ * Mark colors carry meaning in the data and are tuned per theme.
+ * Shape rule: controls 12px, panels 20px, chips and buttons pill.
+ */
+:root {
+  --font-display: 'Cormorant Garamond Variable', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+  --r-ctl: 12px;
+  --r-panel: 20px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --topbar-h: 64px;
+  --h: 85;
+}
+
+:root[data-family='sorting'] { --h: 262; }
+:root[data-family='searching'] { --h: 236; }
+:root[data-family='linkedlist'] { --h: 340; }
+:root[data-family='graph'] { --h: 300; }
+:root[data-family='tree'] { --h: 145; }
+:root[data-family='dp'] { --h: 58; }
+:root[data-family='strings'] { --h: 15; }
+:root[data-family='classics'] { --h: 190; }
+:root[data-family='race'] { --h: 25; }
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: oklch(0.145 0.012 65);
+  --bg-2: oklch(0.17 0.014 68);
+  --surface: oklch(0.185 0.016 70 / 0.78);
+  --surface-solid: oklch(0.195 0.016 70);
+  --surface-2: oklch(0.225 0.018 72 / 0.72);
+  --line: oklch(0.82 0.1 85 / 0.14);
+  --line-strong: oklch(0.82 0.1 85 / 0.3);
+  --grid: oklch(0.82 0.1 85 / 0.09);
+  --text: oklch(0.93 0.025 85);
+  --muted: oklch(0.78 0.03 80);
+  --faint: oklch(0.64 0.03 78);
+  --fam: oklch(0.83 0.11 85);
+  --fam-strong: oklch(0.76 0.12 80);
+  --fam-soft: oklch(0.83 0.11 85 / 0.13);
+  --fam-ink: oklch(0.17 0.02 70);
+  --sig: oklch(0.76 0.1 var(--h));
+  --glass: blur(16px) saturate(1.2);
+  --shadow: 0 1px 0 oklch(0.95 0.05 85 / 0.06) inset, 0 28px 60px -28px oklch(0.04 0.01 60 / 0.95), 0 4px 12px -4px oklch(0.04 0.01 60 / 0.6);
+
+  --bar: oklch(0.5 0.035 75);
+  --m-compare: oklch(0.74 0.15 55);
+  --m-swap: oklch(0.65 0.18 25);
+  --m-found: oklch(0.75 0.14 158);
+  --m-sorted: oklch(0.63 0.09 175);
+  --m-pivot: oklch(0.7 0.13 300);
+  --m-range: oklch(0.42 0.05 250);
+  --m-insert: oklch(0.73 0.1 225);
+  --m-delete: oklch(0.63 0.19 22);
+  --m-notfound: oklch(0.28 0.015 70);
+  --m-pointer: oklch(0.74 0.15 55);
+  --m-frontier: oklch(0.73 0.1 225);
+  --m-visited: oklch(0.4 0.06 290);
+  --m-path: oklch(0.85 0.13 90);
+  --m-active: var(--fam);
+  --wall: oklch(0.09 0.01 60);
+  --mud: oklch(0.45 0.07 60);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: oklch(0.965 0.014 225);
+  --bg-2: oklch(0.95 0.018 205);
+  --surface: oklch(1 0 0 / 0.6);
+  --surface-solid: oklch(0.99 0.005 220);
+  --surface-2: oklch(0.985 0.01 210 / 0.72);
+  --line: oklch(0.42 0.05 230 / 0.14);
+  --line-strong: oklch(0.42 0.05 230 / 0.26);
+  --grid: oklch(0.42 0.05 230 / 0.08);
+  --text: oklch(0.26 0.035 240);
+  --muted: oklch(0.43 0.035 235);
+  --faint: oklch(0.5 0.03 230);
+  --fam: oklch(0.49 0.09 225);
+  --fam-strong: oklch(0.43 0.1 225);
+  --fam-soft: oklch(0.49 0.09 225 / 0.1);
+  --fam-ink: oklch(0.99 0.005 220);
+  --sig: oklch(0.55 0.1 var(--h));
+  --glass: blur(18px) saturate(1.5);
+  --shadow: 0 1px 0 oklch(1 0 0 / 0.8) inset, 0 24px 48px -26px oklch(0.35 0.06 230 / 0.35), 0 3px 10px -4px oklch(0.35 0.06 230 / 0.14);
+
+  --bar: oklch(0.76 0.035 230);
+  --m-compare: oklch(0.72 0.14 65);
+  --m-swap: oklch(0.6 0.17 15);
+  --m-found: oklch(0.6 0.13 155);
+  --m-sorted: oklch(0.62 0.08 185);
+  --m-pivot: oklch(0.58 0.14 295);
+  --m-range: oklch(0.85 0.05 230);
+  --m-insert: oklch(0.62 0.1 235);
+  --m-delete: oklch(0.57 0.18 20);
+  --m-notfound: oklch(0.9 0.012 225);
+  --m-pointer: oklch(0.72 0.14 65);
+  --m-frontier: oklch(0.7 0.1 225);
+  --m-visited: oklch(0.84 0.04 270);
+  --m-path: oklch(0.74 0.15 80);
+  --m-active: var(--fam);
+  --wall: oklch(0.34 0.04 240);
+  --mud: oklch(0.8 0.08 70);
+}
